@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Screen extends StatefulWidget {
   const Screen({super.key});
 
@@ -9,122 +8,114 @@ class Screen extends StatefulWidget {
 }
 
 class _ScreenState extends State<Screen> {
-  int age = 0;
+  String name = '';
+  String job = '';
+  String email = '';
+  String phone = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          alignment: AlignmentDirectional.center,
-          decoration: BoxDecoration(
-            color: Colors.blueAccent,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(15),
-              bottomRight: Radius.circular(15)
-            )
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: Text(
+            'Profile Card',
+            style: TextStyle(
+                color: Colors.white
+            ),
           ),
-          width: 400,
-          height: 400,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Who Am I?',
-                style: TextStyle(
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: IconButton(
+                icon: Icon(
+                  Icons.delete,
                   color: Colors.white,
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold
-                )
+                ),
+                onPressed: () {
+                  name = '';
+                  job = '';
+                  email = '';
+                  phone = '';
+                  setState(() {});
+                },
               ),
-              Text(
-                'Flutter Developer',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.white
-                )
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(15))
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: Image.network(
-                      'https://cdn-icons-gif.flaticon.com/17905/17905521.gif',
-                      width: 150,
-                      height: 150
-                    )
-                  ),
-                  Column(
+            )
+          ],
+        ),
+        body: Center(
+            child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(15))
+                ),
+                width: 400,
+                height: 600,
+                child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(15))
+                          ),
+                          clipBehavior: Clip.antiAlias,
+                          child: Image.network(
+                              'https://cdn-icons-gif.flaticon.com/17905/17905521.gif',
+                              width: 150,
+                              height: 150
+                          )
+                      ),
                       Text(
-                        'Name: Nada Gomaa',
+                        '$name',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      Text(
+                        '$job',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold
-                        )
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: Icon(
-                              Icons.add_circle,
-                              color: Colors.white
-                            ),
-                            onPressed: () {
-                              age++;
-                              setState(() {});
-                            },
-                          ),
-                          Text(
-                            'Age: $age years',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold
-                            )
-                          ),
-                          IconButton(
-                            icon: Icon(
-                                Icons.remove_circle,
-                                color: Colors.white
-                            ),
-                            onPressed: () {
-                              age--;
-                              setState(() {});
-                            },
-                          )
-                        ]
+                          fontSize: 20,
+                        ),
                       ),
                       Text(
-                          'Nationality: Egyptian',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold
-                          )
+                        '$email',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        '$phone',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                        ),
                       )
                     ]
-                  )
-                ]
-              )
-            ]
-          )
+                )
+            )
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Text(
+            '+',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 25
+            ),
+          ),
+          backgroundColor: Colors.blue,
+          onPressed: () {
+            name = 'Nada Gomaa';
+            job = 'Mobile Developer';
+            email = 'email@gmail.com';
+            phone = '+20 1211111111';
+            setState(() {});
+          },
         )
-      )
     );
   }
 }
