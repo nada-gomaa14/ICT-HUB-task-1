@@ -17,7 +17,7 @@ class _ScreenState extends State<Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.lightGreen,
           title: Text(
             'Profile Card',
             style: TextStyle(
@@ -46,7 +46,7 @@ class _ScreenState extends State<Screen> {
         body: Center(
             child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.lightGreen,
                     borderRadius: BorderRadius.all(Radius.circular(15))
                 ),
                 width: 400,
@@ -107,7 +107,7 @@ class _ScreenState extends State<Screen> {
                 fontSize: 25
             ),
           ),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.lightGreen,
           onPressed: () {
             name = 'Nada Gomaa';
             job = 'Mobile Developer';
